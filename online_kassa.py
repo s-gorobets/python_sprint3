@@ -24,14 +24,14 @@ class OnlineSalesRegisterCollector:
         self.__number_items += 1
 
     def delete_item_from_check(self, name):
-        if self.__name_items not in self.__name_items:
+        if name not in self.__name_items:
                 raise NameError('Позиция отсутствует в чеке')
 
         self.__name_items.remove(name)
-        self.__name_items -= 1
+        self.__number_items -= 1
 
     def check_amount(self):
-        total = [self.__name_items[item] for item in self.__name_items]
+        total = [self.__item_price[item] for item in self.__name_items]
         amount = sum(total)
         if self.__number_items > 10:
             amount *= 0.9
